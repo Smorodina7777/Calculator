@@ -1,9 +1,7 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import static javax.management.Query.or;
 
 
 class Calculator {
@@ -114,17 +112,16 @@ class Calculator {
          s1 = s1.replace("/", " ");
          s1 = s1.replace("*", " ");
          String[] words = s1.split(" ");
-         for (String word:words){
-             if (word.contains("V") || word.contains("I") || word.contains("X")){
-                 s1 = s1.replace(word, map.get(word));
-             }
-         }
          if (words.length != 2){
              throw new Exception("throws Exception");
          }
-         String[] words2 = s1.split(" ");
-         int num1 = Integer.parseInt(words2[0]);
-         int num2 = Integer.parseInt(words2[1]);
+         if (s2.contains("V") || s2.contains("I") || s2.contains("X")){
+            words[1] = map.get(words[1]);
+            words[0] = map.get(words[0]);
+         }
+
+         int num1 = Integer.parseInt(words[0]);
+         int num2 = Integer.parseInt(words[1]);
          if (num2 > 10 || num1 > 10 || num2 < 1 || num1 < 1){
              throw new Exception("throws Exception");
          }
