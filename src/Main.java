@@ -2,10 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
-
 class Calculator {
-     static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
+    //You have to explain why do you need this field
 
     public static String arabicToRoman(int x) {
         Map<String,String> map2 = new HashMap<>();
@@ -26,7 +25,7 @@ class Calculator {
         if (x>=1 && x <=10){
             y = x;
             x1 = Integer.toString(y);
-            return ( map2.get(x1));
+            return (map2.get(x1));
         } else if (x>= 11 && x <= 20) {
             y = x-10;
             x1 = Integer.toString(y);
@@ -77,6 +76,7 @@ class Calculator {
 
 
      public static void main(String[] args) throws Exception{
+        // The code should be more modular! You must divide this method into several methods
          Map<String,String> map = new HashMap<>();
          {
              map.put("I", "1");
@@ -92,8 +92,11 @@ class Calculator {
          }
 
          Scanner s = new Scanner(System.in);
+        //Rule number one: don't forget to close the scanner
          String s1 = s.nextLine();
          String min = "-";
+
+         // A few errors are handled, but this does not provide any additional information to the user. Why?
          if ((s1.contains("1") || s1.contains("2") || s1.contains("3") || s1.contains("4") || s1.contains("5") || s1.contains("6") || s1.contains("7") || s1.contains("8") || s1.contains("9")) && (s1.contains("I") || s1.contains("V") || s1.contains("X"))) {
              throw new Exception("throws Exception");
          }
